@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 160 100% 80%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 160 60% 85%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 160 60% 85%;
+
+    --primary: 160 100% 50%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 200 100% 50%;
+    --secondary-foreground: 240 10% 4%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 160 20% 55%;
+
+    --accent: 280 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 160 40% 15%;
+    --input: 160 30% 12%;
+    --ring: 160 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 160 60% 85%;
+    --sidebar-primary: 160 100% 50%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 10% 10%;
+    --sidebar-accent-foreground: 160 60% 85%;
+    --sidebar-border: 160 40% 12%;
+    --sidebar-ring: 160 100% 50%;
+
+    --chart-1: 160 100% 50%;
+    --chart-2: 200 100% 50%;
+    --chart-3: 280 100% 60%;
+    --chart-4: 40 100% 50%;
+    --chart-5: 0 80% 55%;
+
+    --neon-glow: 0 0 10px hsl(160 100% 50% / 0.5), 0 0 20px hsl(160 100% 50% / 0.3), 0 0 40px hsl(160 100% 50% / 0.1);
+    --cyan-glow: 0 0 10px hsl(200 100% 50% / 0.5), 0 0 20px hsl(200 100% 50% / 0.3);
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 160 100% 80%;
+    --card: 240 10% 6%;
+    --card-foreground: 160 60% 85%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 160 60% 85%;
+    --primary: 160 100% 50%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 200 100% 50%;
+    --secondary-foreground: 240 10% 4%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 160 20% 55%;
+    --accent: 280 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 40% 15%;
+    --input: 160 30% 12%;
+    --ring: 160 100% 50%;
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 160 60% 85%;
+    --sidebar-primary: 160 100% 50%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 10% 10%;
+    --sidebar-accent-foreground: 160 60% 85%;
+    --sidebar-border: 160 40% 12%;
+    --sidebar-ring: 160 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .neon-border {
+    box-shadow: var(--neon-glow);
+    border-color: hsl(var(--primary));
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(160 100% 50% / 0.8), 0 0 20px hsl(160 100% 50% / 0.4);
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(160 100% 50% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(160 100% 50% / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .scan-line {
+    background: linear-gradient(
+      transparent 0%,
+      hsl(160 100% 50% / 0.03) 50%,
+      transparent 100%
+    );
+    animation: scan 8s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
